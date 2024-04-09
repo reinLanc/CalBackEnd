@@ -45,7 +45,7 @@ const actualizarEvento = async (req, res = response) => {
         const evento = await Evento.findById(eventoId);
 
         if (!evento) {
-           return  res.status(404).json({
+            return res.status(404).json({
                 ok: false,
                 msg: 'No existe evento con ese Id'
             });
@@ -62,7 +62,7 @@ const actualizarEvento = async (req, res = response) => {
             user: uid
         }
 
-        const eventoActualizado = await Evento.findByIdAndUpdate( eventoId, nuevoEvento, { new: true } );
+        const eventoActualizado = await Evento.findByIdAndUpdate(eventoId, nuevoEvento, { new: true });
 
         res.json({
             ok: true,
@@ -79,15 +79,15 @@ const actualizarEvento = async (req, res = response) => {
     }
 }
 
-const eliminarEvento = async(req, res = response) => {
+const eliminarEvento = async (req, res = response) => {
     const eventoId = req.params.id;
     const uid = req.uid;
 
     try {
-        const evento = await Evento.findById( eventoId );
+        const evento = await Evento.findById(eventoId);
 
         if (!evento) {
-           return  res.status(404).json({
+            return res.status(404).json({
                 ok: false,
                 msg: 'No existe evento con ese Id'
             });
@@ -100,7 +100,7 @@ const eliminarEvento = async(req, res = response) => {
         }
         //Si se llega a este punto es pq tiene privilegio para eliminar el evento
 
-        await Evento.findByIdAndDelete( eventoId );
+        await Evento.findByIdAndDelete(eventoId);
 
         res.json({ ok: true });
 

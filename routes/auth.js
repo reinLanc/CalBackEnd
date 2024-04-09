@@ -1,5 +1,5 @@
 //Rutas de usuarios en auth host + /api/auth
-const {validarCampos} = require('../middlewares/validar_campos');
+const { validarCampos } = require('../middlewares/validar_campos');
 const { Router } = require('express');
 const { check } = require('express-validator');
 const router = Router();
